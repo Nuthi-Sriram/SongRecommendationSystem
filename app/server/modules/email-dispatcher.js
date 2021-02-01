@@ -29,7 +29,7 @@ EM.composeEmail = function(o)
 		html += "Your username is <b>"+o.user+"</b><br><br>";
 		html += "<a href='"+baseurl+'/reset-password?key='+o.passKey+"'>Click here to reset your password</a><br><br>";
 		html += "Cheers,<br>";
-		html += "<a href='https://braitsch.io'>braitsch</a><br><br>";
+		html += "<a href=''></a><br><br>";
 		html += "</body></html>";
 	return [{data:html, alternative:true}];
 }
