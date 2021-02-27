@@ -1195,4 +1195,4 @@ function Home({ history }) {
 }
 
 
-export default withRouter(App)
+export default withRouter(Home)
