@@ -22,9 +22,9 @@ function FeaturedPlaylist({ history }) {
   return (
     <Gallery
       photos={photos}
-      onClick={({ target }) => history.push(`/home/playlist/${target.id}`)}
+      // onClick={({ target }) => history.push(`/home/playlist/${target.id}`)}
     />
   )
 }
-
+ 
 export default withRouter(FeaturedPlaylist)
