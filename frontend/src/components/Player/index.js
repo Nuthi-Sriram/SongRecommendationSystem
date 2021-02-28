@@ -27,7 +27,7 @@ export default function Player() {
       frameborder="0"
       allow="encrypted-media"
       allowtransparency="true"
-      src={`https://open.spotify.com/embed/track/${encodedUriID}`}
+      // src={`https://open.spotify.com/embed/track/${encodedUriID}`}
     />
   )
 }
