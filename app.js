@@ -51,8 +51,9 @@ app.get('/multipleRedirects',(req,res)=>{
 //     // res.render('index.html');
 	// app.use('index.html', express.static(__dirname + '/frontendplaceholder/theme'));
 	// app.use(express.static('/frontendplaceholder'))
-	res.sendFile('index.html', {root : __dirname + '/frontendplaceholder/theme'});
-	res.sendFile('style.css', {root : __dirname + '/frontendplaceholder/theme'});
+	// res.sendFile('index.html', {root : __dirname + '/frontendplaceholder/theme'});
+
+	// res.sendFile('style.css', {root : __dirname + '/frontendplaceholder/theme'});
 	// res.sendFile('blog.html', {root : __dirname + '/frontendplaceholder/theme'});
 	// res.sendFile('charts.html', {root : __dirname + '/frontendplaceholder/theme'});
 	// res.sendFile('events.html', {root : __dirname + '/frontendplaceholder/theme'});
@@ -75,13 +76,8 @@ app.get('/multipleRedirects',(req,res)=>{
 	// 	{Location: '/home/sriram/Documents/work/SongRecommendationSystem/frontendplaceholder/theme/index.html' }
 	//   );
 	//   response.end();
-
-	app.use(function(req, res, next) {
-		if (req.url === 'http://localhost:9000/multipleRedirects') {
-		  req.url = '/home/sriram/Documents/work/SongRecommendationSystem/frontendplaceholder/theme/index.html';
-		}
-		
-	 });
+	app.use(express.static(__dirname + '/app'));
+	res.render('index.ejs');
 	 
 });
 
