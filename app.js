@@ -43,14 +43,46 @@ app.use(session({
 	store: new MongoStore({ url: process.env.DB_URL })
 	})
 );
+
 app.get('/multipleRedirects',(req,res)=>{
 // 	// app.use(express.static(path.join(__dirname, '/frontendplaceholder/theme')));
 // 	// app.set('view engine', 'html');
 // 	// // app.use(app.staticProvider(__dirname + '/frontendplaceholder/theme'));
 //     // res.render('index.html');
-
+	// app.use('index.html', express.static(__dirname + '/frontendplaceholder/theme'));
+	// app.use(express.static('/frontendplaceholder'))
 	res.sendFile('index.html', {root : __dirname + '/frontendplaceholder/theme'});
-	console.log( __dirname); 
+	res.sendFile('style.css', {root : __dirname + '/frontendplaceholder/theme'});
+	// res.sendFile('blog.html', {root : __dirname + '/frontendplaceholder/theme'});
+	// res.sendFile('charts.html', {root : __dirname + '/frontendplaceholder/theme'});
+	// res.sendFile('events.html', {root : __dirname + '/frontendplaceholder/theme'});
+	// res.sendFile('podcast.html', {root : __dirname + '/frontendplaceholder/theme'});
+	// res.sendFile('show.html', {root : __dirname + '/frontendplaceholder/theme'});
+	// res.sendFile('single-blog.html', {root : __dirname + '/frontendplaceholder/theme'});
+	// res.sendFile('single-podcast.html', {root : __dirname + '/frontendplaceholder/theme'});
+	// res.sendFile('single-charts.html', {root : __dirname + '/frontendplaceholder/theme'});
+	// res.sendFile('bootstrap.min.js', {root : __dirname + '/frontendplaceholder/js'});
+	// res.sendFile('jquery.min.js', {root : __dirname + '/frontendplaceholder/js'});
+	// res.sendFile('popper.min.js', {root : __dirname + '/frontendplaceholder/js'});
+	// res.sendFile('razo.min.js', {root : __dirname + '/frontendplaceholder/js'});
+	// res.sendFile('active.js', {root : __dirname + '/frontendplaceholder/js/default-assets'});
+
+	// res.statusCode = 302;
+	// res.setHeader("Location", "/home/sriram/Documents/work/SongRecommendationSystem/frontendplaceholder/theme/index.html");
+	// res.end();
+
+	// response.writeHead(301,
+	// 	{Location: '/home/sriram/Documents/work/SongRecommendationSystem/frontendplaceholder/theme/index.html' }
+	//   );
+	//   response.end();
+
+	app.use(function(req, res, next) {
+		if (req.url === 'http://localhost:9000/multipleRedirects') {
+		  req.url = '/home/sriram/Documents/work/SongRecommendationSystem/frontendplaceholder/theme/index.html';
+		}
+		
+	 });
+	 
 });
 
 require('./app/server/routes')(app);
