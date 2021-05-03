@@ -2,6 +2,7 @@
 var CT = require('./modules/country-list');
 var AM = require('./modules/account-manager');
 var EM = require('./modules/email-dispatcher');
+const { response } = require('express');
 
 module.exports = function(app) {
 
@@ -54,7 +55,13 @@ module.exports = function(app) {
 /*
 	control panel
 */
-	
+app.get('/multipleLogins',(req,res)=>{
+    res.render('multipleLogins.ejs');
+});
+// app.get('/multipleRedirects',(req,res)=>{
+// 	res.sendFile('index.html', {root : __dirname + '/frontendplaceholder/theme'});
+//     // res.render('multipleLogins.ejs');
+// });
 	app.get('/home', function(req, res) {
 		if (req.session.user == null){
 			res.redirect('/');

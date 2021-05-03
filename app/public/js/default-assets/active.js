@@ -1,0 +1,13 @@
+(function($){'use strict';var razo_window=$(window);razo_window.on('load',function(){$('#preloader').fadeOut('1000',function(){$(this).remove();});});if($.fn.classyNav){$('#razoNav').classyNav();}
+if($.fn.owlCarousel){var welcomeSlider=$('.welcome-slides');welcomeSlider.owlCarousel({items:1,loop:true,autoplay:true,smartSpeed:1500,animateIn:'fadeIn',animateOut:'fadeOut',autoplayTimeout:7000,nav:false,dots:true})
+welcomeSlider.on('translate.owl.carousel',function(){var layer=$("[data-animation]");layer.each(function(){var anim_name=$(this).data('animation');$(this).removeClass('animated '+anim_name).css('opacity','0');});});$("[data-delay]").each(function(){var anim_del=$(this).data('delay');$(this).css('animation-delay',anim_del);});$("[data-duration]").each(function(){var anim_dur=$(this).data('duration');$(this).css('animation-duration',anim_dur);});welcomeSlider.on('translated.owl.carousel',function(){var layer=welcomeSlider.find('.owl-item.active').find("[data-animation]");layer.each(function(){var anim_name=$(this).data('animation');$(this).addClass('animated '+anim_name).css('opacity','1');});});}
+if($.fn.owlCarousel){var latestNewsSlide=$('.razo-latest-news-slide');latestNewsSlide.owlCarousel({items:2,margin:50,loop:true,autoplay:true,smartSpeed:1500,dots:true,center:true,responsive:{0:{items:1},768:{items:2}}});}
+if($.fn.imagesLoaded){$('.razo-blog-masonary').imagesLoaded(function(){var $grid=$('.razo-blog-masonary').isotope({itemSelector:'.razo-blog-masonary-item',percentPosition:true,masonry:{columnWidth:'.razo-blog-masonary-item'}});});}
+if($.fn.magnificPopup){$('.video-play-btn').magnificPopup({type:'iframe'});}
+if($.fn.tooltip){$('[data-toggle="tooltip"]').tooltip();}
+if(razo_window.width()>767){new WOW().init();}
+if($.fn.jarallax){$('.jarallax').jarallax({speed:0.2});}
+if($.fn.scrollUp){razo_window.scrollUp({scrollSpeed:1500,scrollText:'<i class="arrow_up"</i>'});}
+razo_window.on('scroll',function(){if(razo_window.scrollTop()>0){$('.main-header-area').addClass('sticky');}else{$('.main-header-area').removeClass('sticky');}});if($.fn.counterUp){$('.counter').counterUp({delay:15,time:1500});}
+$('a[href="#"]').on('click',function($){$.preventDefault();});$(".social-share-icon").on('click',function(){$(this).toggleClass('active');$(".razo-social-share-area").toggleClass('active');});$(".ss-close-btn").on('click',function(){$(".razo-social-share-area").removeClass('active');});if($.fn.audioPlayer){$('audio').audioPlayer();}
+if($.fn.countdown){$("#clock").countdown("2020/11/10",function(event){$(this).html(event.strftime("<div>%D <span>Days</span></div> <div>%H <span>Hours</span></div> <div>%M <span>Minutes</span></div> <div>%S <span>Seconds</span></div>"));});}})(jQuery);
