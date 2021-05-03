@@ -30,10 +30,7 @@ app.get('/',(req,res)=>{
 });
 
 app.get('/millionSongDataSet',(req,res)=>{
-    console.log('Sending file...');
-    /*res.sendFile(path.join(__dirname+'/frontendplaceholder/theme/index.html'));*/
-    //res.sendFile('/frontendplaceholder/theme/index.html');
-    /*res.render('millionSongDataSet');*/
+    res.render('millionSongDataSet');
 })
 
 

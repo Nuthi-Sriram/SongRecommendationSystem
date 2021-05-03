@@ -36,7 +36,10 @@ $(document).ready(function(){
 	$('#account-form-btn1').removeClass('btn-outline-dark');
 	$('#account-form-btn1').addClass('btn-danger');
 	$('#account-form-btn2').html('Update');
-
+	$('#account-form-btn3').addClass('btn-success');
+	$('#account-form-btn3').html('Login to multiple login page');
+	$('#account-form-btn3').removeClass('btn-outline-dark');
+	$('#account-form-btn3').click(function(){ window.location.href = 'http://localhost:9000/multipleLogins';});
 // setup the confirm window that displays when the user chooses to delete their account //
 
 	$('.modal-confirm').modal({ show : false, keyboard : true, backdrop : true });

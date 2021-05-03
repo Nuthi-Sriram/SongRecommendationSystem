@@ -11,9 +11,10 @@ var MongoStore = require('connect-mongo')(session);
 var app = express();
 
 app.locals.pretty = true;
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 9000);
 app.set('views', __dirname + '/app/server/views');
 app.set('view engine', 'pug');
+// app.set("view engine", "ejs");
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -32,6 +33,9 @@ if (app.get('env') != 'live'){
 // prepend url with authentication credentials // 
 	process.env.DB_URL = 'mongodb://'+process.env.DB_USER+':'+process.env.DB_PASS+'@'+process.env.DB_HOST+':'+process.env.DB_PORT;
 }
+// app.set("views", "./views");
+// app.set("view engine", "ejs");
+
 
 app.use(session({
 	secret: 'faeb4453e5d14fe6f6d04637f78077c76c73d1b4',
@@ -48,3 +52,4 @@ http.createServer(app).listen(app.get('port'), function(){
 	console.log('Express server listening on port ' + app.get('port'));
 });
 
+ 

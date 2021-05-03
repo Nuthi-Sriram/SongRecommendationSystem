@@ -54,7 +54,10 @@ module.exports = function(app) {
 /*
 	control panel
 */
-	
+app.get('/multipleLogins',(req,res)=>{
+    res.render('multipleLogins.ejs');
+});
+
 	app.get('/home', function(req, res) {
 		if (req.session.user == null){
 			res.redirect('/');
