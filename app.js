@@ -1,11 +1,9 @@
-
-
-
 var http = require('http');
 var express = require('express');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
+var path = require('path');
 var MongoStore = require('connect-mongo')(session);
 
 var app = express();
@@ -45,11 +43,20 @@ app.use(session({
 	store: new MongoStore({ url: process.env.DB_URL })
 	})
 );
+app.get('/multipleRedirects',(req,res)=>{
+// 	// app.use(express.static(path.join(__dirname, '/frontendplaceholder/theme')));
+// 	// app.set('view engine', 'html');
+// 	// // app.use(app.staticProvider(__dirname + '/frontendplaceholder/theme'));
+//     // res.render('index.html');
+
+	res.sendFile('index.html', {root : __dirname + '/frontendplaceholder/theme'});
+	console.log( __dirname); 
+});
 
 require('./app/server/routes')(app);
 
 http.createServer(app).listen(app.get('port'), function(){
 	console.log('Express server listening on port ' + app.get('port'));
 });
-
+ 
  
